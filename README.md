@@ -11,7 +11,7 @@ python3 -m pip install -r requirements.txt
 
 ## Usage
 
-To see a list of available options and flags run: 
+To see a list of available options run: 
  
 ```shell
 python3 index.py
