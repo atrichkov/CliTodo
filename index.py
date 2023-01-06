@@ -3,15 +3,15 @@ from prettytable import PrettyTable
 
 print('========================= Command TODO line tool =========================');
 
+# List with available commands
 commands = {
     '1': 'Add new todo',
     '2': 'List all todos',
     '3': 'Delete todo',
 }
 
-# List possible commands
-for x in commands:
-    print(x + ' - ' + commands[x])
+for i in commands:
+    print(i + ' - ' + commands[i])
 
 def loadFileData():
     with open('todos.json', 'r') as file:
@@ -46,13 +46,7 @@ def listTodos():
     
     print(table)
 
-inpCommand = int(input('Select option from above: '))
-
-if inpCommand == 1:
-    addNewTodo()
-elif inpCommand == 2:
-    listTodos()
-elif inpCommand == 3:
+def deleteTodo():
     indexTodo = int(input('Select todo number that you want to delete ? '))
     data = loadFileData()
 
@@ -65,3 +59,12 @@ elif inpCommand == 3:
             del data[counter-1]
         counter += 1
     saveData(data)
+
+selectedCommand = int(input('Select option from above: '))
+
+if selectedCommand == 1:
+    addNewTodo()
+elif selectedCommand == 2:
+    listTodos()
+elif selectedCommand == 3:
+    deleteTodo()
